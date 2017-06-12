@@ -20,23 +20,23 @@ my @cmd = (@ARGV);
 
 # options variables
 my $v = 0;               # verbosity
-my $man = 0; 
+my $man = 0;
 my $only = [];           # list of entities to include
 my $exclude = [];        # list of entities to exclude
 my $keep_orphans = 1;    # preserve entities with no relations
-my $output = '';         # file name to save the list 
-my $dumps = [];          # (debugging) dump the content of SOFT object 
+my $output = '';         # file name to save the list
+my $dumps = [];          # (debugging) dump the content of SOFT object
 
 # TODO: options to implement
 #   --format
-#   --separator 
+#   --separator
 #   --sort
 
 # process command-line options
-GetOptions( 
-	'v|verbose+'    => \$v, 
-	'only=s@'       => \$only, 
-	'exclude=s@'    => \$exclude, 
+GetOptions(
+	'v|verbose+'    => \$v,
+	'only=s@'       => \$only,
+	'exclude=s@'    => \$exclude,
 	'orphans!'      => \$keep_orphans,
 	'dump:s'        => \$dumps,
 	'man' => \$man ) or pod2usage(2);
@@ -97,7 +97,7 @@ soft2list - list the entities in ontologies provided the query
 
 =head1 SYNOPSIS
 
-soft2list [options] [ontology.soft [ontology2.soft [...]] [>file.list] 
+soft2list [options] [ontology.soft [ontology2.soft [...]] [>file.list]
 
 
 =head1 OPTIONS
@@ -128,17 +128,21 @@ Exclude from the output entities listed.  Entities should be separated by comma 
 
 Include in the input ONLY entities listed.  Same syntax as in B<--exclude> option.
 
-=item B<--dump> <[all|[ent[ities], rel[ations], sty[les]]] 
+=item B<--dump> <[all|[ent[ities], rel[ations], sty[les]]]
 
 dump specified content on the stdin, options are: (can be a I<list>)
 
+=back
+
 =head2 Conventions
+
+=over 8
 
 =item B<<list>>
 
 list items should be separated with commas, items
 starting with @ will be interpreted as names of
-files which contain elements on each lines (files 
+files which contain elements on each lines (files
 can be nested)
 
 =back
@@ -148,4 +152,3 @@ can be nested)
 B<This program> will read the given input file(s) and convert them into graphviz gv format.
 
 =cut
-
