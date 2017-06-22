@@ -1,15 +1,57 @@
 #
 # Basic Formal Ontology
 #
-# For orginal publication on Basic Formal Ontology see
-#   Spear, A. D. (2006). Ontology for the Twenty First Century:  
-#   An Introduction with Recommendations. Saarbrücken, Germany: IFOMIS. 
+# For orginal publication on Basic Formal Ontology version 1 see
+#   Spear, A. D. (2006). Ontology for the Twenty First Century:
+#   An Introduction with Recommendations. Saarbrücken, Germany: IFOMIS.
 #   Retrieved from http://www.ifomis.org/bfo/documents/manual.pdf
 #
+# For BFO 2 see https://github.com/BFO-ontology/BFO
+#
 
-[BasicFormalOntology]
+[BasicFormalOntology_2.0]
 cat:Occurent -subcat-> cat:Entity
 cat:Continuant ~
+
+cat:IndependentContinuant -subcat-> cat:Continuant
+cat:SpatialRegion -subcat-> cat:IndependentContinuant
+cat:MaterialEntity ~
+cat:ImmaterialEntity ~
+
+cat:Object -subcat-> cat:MaterialEntity
+cat:FiatObjectPart ~
+cat:ObjectAggregate ~
+
+cat:ContinuantFiatBoundary -subcat-> cat:ImmaterialEntity
+cat:ZeroDimensionalFiatBoundary -subcat-> cat:ContinuantFiatBoundary
+cat:OneDimensionalFiatBoundary -subcat-> cat:ContinuantFiatBoundary
+cat:TwoDimensionalFiatBoundary -subcat-> cat:ContinuantFiatBoundary
+
+cat:site -subcat-> cat:IndependentContinuant
+
+cat:ZeroDimensionalRegion -subcat-> cat:SpatialRegion
+cat:OneDimensionalRegion -subcat-> cat:SpatialRegion
+cat:TwoDimensionalRegion -subcat-> cat:SpatialRegion
+cat:ThreeDimensionalRegion -subcat-> cat:SpatialRegion
+
+cat:IndependentContinuant -subcat-> cat:Continuant
+
+cat:ObjectBoundary -subcat-> cat:IndependentContinuant
+cat:Site ~
+cat:MaterialEntity ~
+
+cat:SpecificallyDependentContinuant -subcat-> cat:Continuant
+cat:GenericallyDependentContinuant -subcat-> cat:Continuant
+
+cat:RealizableEntity -subcat-> cat:SpecificallyDependentContinuant
+cat:Quality ~
+cat:RelationalQuality -subcat-> cat:Quality
+
+cat:Role -subcat-> cat:RealizableEntity
+cat:Disposition ~
+cat:Function -subcat-> cat:Disposition
+
+# occurents
 
 cat:TemporalRegion -subcat-> cat:Occurent
 cat:SpatiotemporalRegion ~
@@ -27,36 +69,8 @@ cat:ScatteredSpatiotemporalRegion ~
 cat:SpatiotemporalInterval -subcat-> cat:ConnectedSpatiotemporalRegion
 cat:SpatiotemporalInstant ~
 
-cat:ProcessualContext -subcat-> cat:ProcessualEntity 
+cat:ProcessualContext -subcat-> cat:ProcessualEntity
 cat:ProcessBoundary ~
 cat:ProcessAggregate ~
 cat:Process ~
 cat:FiatProcessPart ~
-
-cat:IndependentContinuant -subcat-> cat:Continuant
-cat:DependentContinuant ~
-cat:SpatialRegion ~
-
-cat:ObjectBoundary -subcat-> cat:IndependentContinuant
-cat:Site ~
-cat:MaterialEntity ~
-
-cat:ObjectAggregate -subcat-> cat:MaterialEntity
-cat:FiatObjectPart ~
-cat:Object ~
-
-cat:SpecificallyDependentContinuant -subcat-> cat:DependentContinuant
-cat:GenericallyDependentContinuant -subcat-> cat:DependentContinuant
-
-cat:RealizableEntity -subcat-> cat:SpecificallyDependentContinuant
-cat:Quality ~
-
-cat:Function -subcat-> cat:RealizableEntity
-cat:Role ~
-cat:Disposition ~
-
-cat:Volume -subcat-> cat:SpatialRegion
-cat:Surface ~
-cat:Line ~
-cat:Point ~
-
